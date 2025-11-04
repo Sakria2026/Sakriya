@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from "react";
+// 1. IMPORT 'FormEvent' FROM REACT
+import { useState, FormEvent } from "react"; 
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -12,15 +13,15 @@ import { Leaf, ArrowLeft, MapPin, Phone, Mail, Clock, Car } from "lucide-react";
 export default function ContactPage() {
   const [showDirections, setShowDirections] = useState(false);
 
-  // --- States for the form ---
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [phone, setPhone] = useState(""); 
   const [message, setMessage] = useState("");
 
-  const handleSubmit = (e) => {
+  // 2. ADD THE TYPE 'React.FormEvent' TO 'e'
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault(); 
-    const YOUR_PHONE_NUMBER = "918144218850"; // <-- Change this!
+    const YOUR_PHONE_NUMBER = "917810864852"; // <-- Change this!
 
     const fullMessage = `Hello, I'm contacting you from the website.
     
@@ -30,13 +31,12 @@ Message: ${message}`;
 
     const encodedMessage = encodeURIComponent(fullMessage);
     const whatsappUrl = `https://wa.me/${YOUR_PHONE_NUMBER}?text=${encodedMessage}`;
-    
+
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
-    // Reset form
     setFirstName("");
     setLastName("");
-    setPhone("");
+    setPhone(""); 
     setMessage("");
   };
 
@@ -126,7 +126,7 @@ Message: ${message}`;
                     <Label htmlFor="phone">Mobile Number</Label>
                     <Input
                       id="phone"
-                      type="tel"
+                      type="tel" 
                       placeholder="Enter your WhatsApp number"
                       className="mt-1"
                       value={phone}
@@ -213,12 +213,10 @@ Message: ${message}`;
                       </div>
                     </div>
                     
-                    {/* --- THIS IS THE FIXED BUTTON --- */}
                     <Button asChild className="w-full mt-4 bg-green-600 hover:bg-green-700">
                       <Link href={directionsInfo.url} target="_blank">
                         Open in Google Maps
                       </Link>
-                      {/* The stray "Row" text was removed from here */}
                     </Button>
 
                   </div>
