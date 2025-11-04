@@ -4,9 +4,8 @@ import "./globals.css";
 import { CartProvider } from "@/contexts/CartContext";
 import { Navbar } from "@/components/Navbar";
 import CartFlyout from "@/components/checkout/CartFlyout";
-// import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider"; // 1. REMOVED THIS
 
-// 2. FIXED THE FONT DEFINITIONS
+// FIXED THE FONT DEFINITIONS
 const geistSans = Geist({
   variable: '--font-geist',
   subsets: ['latin'], // <-- ADDED THIS
@@ -27,9 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    // Added font variables to <html> tag
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        {/* 3. REMOVED THE SmoothScrollProvider WRAPPER */}
+        {/* REMOVED THE SmoothScrollProvider WRAPPER */}
         <CartProvider>
           <Navbar />
           <main>{children}</main>
