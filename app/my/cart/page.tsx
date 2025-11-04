@@ -8,7 +8,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useCart } from '@/contexts/CartContext';
-import PaymentForm from '@/components/PaymentForm';
 
 export default function CartPage() {
   const { cart, removeItem, updateQuantity, clearCartItems } = useCart();
