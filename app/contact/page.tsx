@@ -1,7 +1,7 @@
 'use client';
 
 // 1. IMPORT 'FormEvent' FROM REACT
-import { useState, FormEvent } from "react"; 
+import { useState, FormEvent } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -15,12 +15,12 @@ export default function ContactPage() {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [phone, setPhone] = useState(""); 
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
 
   // 2. ADD THE TYPE 'React.FormEvent' TO 'e'
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault(); 
+    e.preventDefault();
     const YOUR_PHONE_NUMBER = "917810864852"; // <-- Change this!
 
     const fullMessage = `Hello, I'm contacting you from the website.
@@ -36,16 +36,16 @@ Message: ${message}`;
 
     setFirstName("");
     setLastName("");
-    setPhone(""); 
+    setPhone("");
     setMessage("");
   };
 
   const directionsInfo = {
-    from: "Rampurhat Junction railway station",
-    distance: "68.7 km",
-    duration: "2 hrs, 7 mins",
-    summary: "via NH114",
-    url: "https://www.google.com/maps/dir/Rampurhat+Junction,+Rampurhat,+West+Bengal,+India/Kamalakantapur,+West+Bengal,+India/data=!4m14!4m13!1m5!1m1!19sChIJHzBRk4Ye-jkRnmwJLHHtnis!2m2!1d87.781937!2d24.1796547!1m5!1m1!19sChIJ-8uoHwHd-TkR-g9_fsHAJZ4!2m2!1d87.6593461!2d23.702535899999997!3e0"
+    from: "BOLPUR-SANTHINIKETAN Railway Station/ Prantik(Optional...)",
+    distance: "To be calculated", // Or keep previous if approximate same region
+    duration: "Approx 2 hrs",
+    summary: "via Local Roads",
+    url: "https://www.google.com/maps/dir/?api=1&destination=Vill:+Kamalakantapur,+PO:+Khanjanpur,+Dist:+Birbhum,+West+Bengal" // Generic link if exact coords unknown
   };
 
   const contactInfo = [
@@ -66,7 +66,7 @@ Message: ${message}`;
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      details: ["info@sakriyafarm.com", "bookings@sakriyafarm.com"],
+      details: ["info@sakriafarm.com", "bookings@sakriafarm.com"],
     },
   ];
 
@@ -95,7 +95,7 @@ Message: ${message}`;
             <Card className="p-8">
               <CardContent className="p-0">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
-                
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
@@ -126,7 +126,7 @@ Message: ${message}`;
                     <Label htmlFor="phone">Mobile Number</Label>
                     <Input
                       id="phone"
-                      type="tel" 
+                      type="tel"
                       placeholder="Enter your WhatsApp number"
                       className="mt-1"
                       value={phone}
@@ -146,7 +146,7 @@ Message: ${message}`;
                       required
                     />
                   </div>
-                  
+
                   <Button
                     type="submit"
                     className="w-full bg-green-600 hover:bg-green-700"
@@ -185,7 +185,7 @@ Message: ${message}`;
               <CardContent className="p-0">
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">How to Get Here</h2>
                 <p className="text-gray-600 mb-6">
-                  The nearest major railway station is Rampurhat Junction. From there, it's about a 2-hour drive to our farm.
+                  The nearest major railway station is BOLPUR-SANTHINIKETAN Railway Station/ Prantik(Optional...). From there, it's about a 2-hour drive to our farm.
                 </p>
                 <Button
                   variant="outline"
@@ -197,7 +197,7 @@ Message: ${message}`;
 
                 {showDirections && (
                   <div className="mt-4 p-4 bg-white border rounded-lg">
-                    <h3 className="font-bold text-md text-gray-800 mb-4">Route from Rampurhat Junction</h3>
+                    <h3 className="font-bold text-md text-gray-800 mb-4">Route from BOLPUR-SANTHINIKETAN</h3>
                     <div className="space-y-3 text-gray-700">
                       <div className="flex items-center">
                         <Car className="h-5 w-5 mr-3 text-green-600" />
@@ -212,7 +212,7 @@ Message: ${message}`;
                         <div><strong>Route:</strong> {directionsInfo.summary}</div>
                       </div>
                     </div>
-                    
+
                     <Button asChild className="w-full mt-4 bg-green-600 hover:bg-green-700">
                       <Link href={directionsInfo.url} target="_blank">
                         Open in Google Maps

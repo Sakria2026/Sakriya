@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useCart } from '@/contexts/CartContext';
-import WhatsappCheckoutModal from '@/components/checkout/WhatsappCheckoutModal';
+import WhatsappCheckoutModal from '@/components/checkout/WhatsappCheckoutModal'; // Make sure this path is correct
 
 export default function CartPage() {
   const { cart, removeItem, updateQuantity, clearCartItems } = useCart();
@@ -20,8 +20,8 @@ export default function CartPage() {
   if (cart.items.length === 0) {
     return (
       <div className="min-h-screen bg-gray-50">
-        {/* The <nav> section has been removed from the empty cart view */}
 
+        {/* ... your empty cart JSX ... */}
         <div className="max-w-7xl mx-auto px-4 py-8">
           <div className="flex items-center space-x-2 mb-8">
             <Link href="/" className="text-green-600 hover:text-green-700 flex items-center">
@@ -46,7 +46,6 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* The <nav> section has been removed from the main cart view */}
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="flex items-center space-x-2 mb-8">
@@ -59,6 +58,7 @@ export default function CartPage() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
+          {/* ... your cart items mapping ... */}
           <div className="lg:col-span-2">
             <Card>
               <CardHeader>
@@ -108,6 +108,7 @@ export default function CartPage() {
             </Card>
           </div>
 
+          {/* ... your order summary ... */}
           <div className="lg:col-span-1">
             <Card>
               <CardHeader>
@@ -133,7 +134,6 @@ export default function CartPage() {
                     </div>
                   </div>
                 </div>
-
                 <div className="space-y-2">
                   <Button
                     onClick={() => setIsModalOpen(true)}
@@ -160,6 +160,7 @@ export default function CartPage() {
         onClose={() => setIsModalOpen(false)}
         cartItems={cart.items}
         totalAmount={total}
+        onCheckoutSuccess={clearCartItems} // <-- *** THIS IS THE FIX ***
       />
     </div>
   );

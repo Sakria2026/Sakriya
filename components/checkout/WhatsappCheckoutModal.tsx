@@ -29,6 +29,7 @@ interface WhatsappCheckoutModalProps {
   onClose: () => void;
   cartItems: CartItem[];
   totalAmount: number;
+  onCheckoutSuccess: () => void; // <-- 1. ADD THIS PROP
 }
 
 export default function WhatsappCheckoutModal({
@@ -36,6 +37,7 @@ export default function WhatsappCheckoutModal({
   onClose,
   cartItems,
   totalAmount,
+  onCheckoutSuccess, // <-- 2. DESTRUCTURE THE NEW PROP
 }: WhatsappCheckoutModalProps) {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -75,17 +77,28 @@ export default function WhatsappCheckoutModal({
     fullMessage += `Please confirm this order. Thank you!`;
 
     // Get the business WhatsApp number from environment variables
-    const businessWhatsappNumber = process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP_NUMBER;
+    // Hardcoded number
+    const businessWhatsappNumber = "917810864852";
 
-    // Create the WhatsApp URL
-    const whatsappUrl = `https://wa.me/${businessWhatsappNumber}?text=${encodeURIComponent(
+    // DEBUG: PROVING THE NEW CODE IS RUNNING
+    // alert("Debug: Found number " + businessWhatsappNumber);
+
+    // REMOVED THE IF CHECK COMPLETELY. IT WILL NEVER FAIL.
+
+    // Clean the business number properly (remove spaces, dashes, etc.)
+    const cleanBusinessNumber = businessWhatsappNumber.replace(/\D/g, '');
+
+    // Create the WhatsApp URL using the universal API format
+    // This format acts better across different devices/browsers than wa.me
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${cleanBusinessNumber}&text=${encodeURIComponent(
       fullMessage
     )}`;
 
     // Open WhatsApp in a new tab
     window.open(whatsappUrl, '_blank');
-    
+
     setLoading(false);
+    onCheckoutSuccess(); // <-- 3. CALL IT HERE (to clear the cart)
     onClose(); // Close the modal after sending
   };
 
@@ -138,8 +151,8 @@ export default function WhatsappCheckoutModal({
           </div>
         </div>
         <DialogFooter>
-          <Button 
-            onClick={handleSendOrder} 
+          <Button
+            onClick={handleSendOrder}
             disabled={loading || !name || !phone}
             className="w-full bg-green-600 hover:bg-green-700"
           >

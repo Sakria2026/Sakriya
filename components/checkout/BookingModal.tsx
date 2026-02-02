@@ -49,7 +49,15 @@ export default function BookingModal({ isOpen, onClose, accommodation }: Booking
 
     setLoading(true);
 
-    const YOUR_PHONE_NUMBER = "918144218850";
+    const businessWhatsappNumber = process.env.NEXT_PUBLIC_BUSINESS_WHATSAPP_NUMBER || "917810864852";
+
+    if (!businessWhatsappNumber) {
+      alert('Booking configuration error. Please contact admin.');
+      setLoading(false);
+      return;
+    }
+
+    const cleanBusinessNumber = businessWhatsappNumber.replace(/\D/g, '');
 
     const message = `Hello, I'm interested in booking the "${accommodation.name}".
     
@@ -60,7 +68,8 @@ Phone: ${phone}
 Can you please confirm availability?`;
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${YOUR_PHONE_NUMBER}?text=${encodedMessage}`;
+    // Use the universal API format to match WhatsappCheckoutModal
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=${cleanBusinessNumber}&text=${encodedMessage}`;
 
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
@@ -123,12 +132,7 @@ Can you please confirm availability?`;
                 </div>
               </div>
 
-              <div>
-                <h4 className="font-semibold text-gray-800 mb-3">Amenities</h4>
-                <ul className="grid grid-cols-2 gap-x-4 gap-y-2 text-gray-600">
-                  {accommodation.amenities.map((amenity, i) => (<li key={i} className="flex items-center text-sm"><Leaf className="h-3 w-3 mr-2 text-green-500" />{amenity}</li>))}
-                </ul>
-              </div>
+
 
               {accommodation.rules && accommodation.rules.length > 0 && (
                 <div>
@@ -136,7 +140,7 @@ Can you please confirm availability?`;
                   <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-r-lg space-y-3">
                     {accommodation.rules.map((rule, index) => (
                       <div key={index} className={`flex items-start space-x-3 ${rule.type === 'warning' ? 'text-red-700' : 'text-gray-700'}`}>
-                        
+
                         {/* --- THIS IS THE FIXED LINE --- */}
                         <div className="flex-shrink-0 mt-0.5">
                           {React.isValidElement(rule.icon) ? React.cloneElement(rule.icon as React.ReactElement<any>, { className: "h-5 w-5" }) : null}

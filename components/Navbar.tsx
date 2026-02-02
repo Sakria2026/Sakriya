@@ -28,7 +28,7 @@ export function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2" onClick={() => setIsMenuOpen(false)}>
             <Leaf className="h-8 w-8 text-green-600" />
-            <span className="text-xl font-bold text-gray-900">Sakriya</span>
+            <span className="text-xl font-bold text-gray-900">Sakria</span>
           </Link>
 
           {/* Desktop Menu Links */}
@@ -51,7 +51,7 @@ export function Navbar() {
               )}
               <span className="sr-only">Open Cart</span>
             </Button>
-            
+
             {/* Hamburger Menu Button (Mobile) */}
             <div className="md:hidden">
               <Button onClick={() => setIsMenuOpen(!isMenuOpen)} variant="ghost" size="icon">

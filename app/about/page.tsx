@@ -48,12 +48,12 @@ export default function AboutPage() {
   ];
 
   const practices = [
-      { icon: <Leaf className="w-8 h-8 text-white"/>, title: "Soil Health", description: "Cover cropping, composting, and minimal tillage to build rich, living soil." },
-      { icon: <Leaf className="w-8 h-8 text-white"/>, title: "Water Conservation", description: "Drip irrigation, rainwater harvesting, and drought-resistant varieties." },
-      { icon: <Leaf className="w-8 h-8 text-white"/>, title: "Biodiversity", description: "Polyculture plantings, native habitat preservation, and beneficial insect support." },
-      { icon: <Leaf className="w-8 h-8 text-white"/>, title: "Animal Welfare", description: "Pasture-raised livestock with rotational grazing and natural behaviors." },
-      { icon: <Leaf className="w-8 h-8 text-white"/>, title: "Renewable Energy", description: "Solar and wind power for carbon-neutral farm operations." },
-      { icon: <Leaf className="w-8 h-8 text-white"/>, title: "Waste Reduction", description: "Composting, recycling, and circular economy principles." },
+    { icon: <Leaf className="w-8 h-8 text-white" />, title: "Soil Health", description: "Cover cropping, composting, and minimal tillage to build rich, living soil." },
+    { icon: <Leaf className="w-8 h-8 text-white" />, title: "Water Conservation", description: "Drip irrigation, rainwater harvesting, and drought-resistant varieties." },
+    { icon: <Leaf className="w-8 h-8 text-white" />, title: "Biodiversity", description: "Polyculture plantings, native habitat preservation, and beneficial insect support." },
+    { icon: <Leaf className="w-8 h-8 text-white" />, title: "Animal Welfare", description: "Pasture-raised livestock with rotational grazing and natural behaviors." },
+    { icon: <Leaf className="w-8 h-8 text-white" />, title: "Renewable Energy", description: "Solar and wind power used for drying fruit items." },
+    { icon: <Leaf className="w-8 h-8 text-white" />, title: "Waste Reduction", description: "Composting, recycling, and circular economy principles." },
   ];
 
   const certifications = [
@@ -82,19 +82,19 @@ export default function AboutPage() {
           <section className="text-center mb-20">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Rooted in Tradition, Growing for the Future</h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Sakriya Farm is more than just a place to stay or shop—it's a living example of our commitment to sustainable agriculture and a deep connection to the land we've nurtured since 1996.
+              Sakria Farm is more than just a place to stay or shop—it's a living example of our commitment to sustainable agriculture and a deep connection to the land we've nurtured since 1996.
             </p>
           </section>
         </AnimateOnScroll>
-        
+
         {/* --- "OUR STORY" SECTION (MODIFIED) --- */}
         <AnimateOnScroll>
           <section className="grid md:grid-cols-2 gap-12 items-center mb-20">
             <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden">
-                <Image src="/images/gallery/farm-view.jpg" alt="Sakriya Farm Landscape" fill className="object-cover" />
+              <Image src="/images/gallery/farm-view.jpg" alt="Sakria Farm Landscape" fill className="object-cover" />
             </div>
             <div className="text-lg text-gray-700 leading-relaxed">
-              
+
               {/* --- ADDED: Header with Toggle Button --- */}
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-3xl font-bold text-gray-900">Our Story (আমাদের গল্প)</h2>
@@ -125,21 +125,21 @@ export default function AboutPage() {
         {/* --- "MEET THE FOUNDER" SECTION --- */}
         <AnimateOnScroll>
           <section className="mb-20 bg-green-50 rounded-lg p-12">
-             <div className="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
-                <div className="mx-auto">
-                   <Image src="/images/birendra-roy.jpg" alt="Birendra Kumar Roy" width={200} height={200} className="rounded-full object-cover aspect-square" />
-                </div>
-                <div className="md:col-span-2">
-                   <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet the Founder</h2>
-                   <p className="text-lg text-gray-700 mb-4">
-                     "Our main goal is to create a farming model where a family can live healthily and comfortably without artificial chemicals. Over time, we've built a processing center to prevent waste and generate more income, and now, a homestay to share our way of life with you."
-                   </p>
-                   <p className="font-semibold text-gray-800">— Birendra Kumar Roy</p>
-                </div>
-             </div>
+            <div className="grid md:grid-cols-3 gap-8 items-center text-center md:text-left">
+              <div className="mx-auto">
+                <Image src="/images/birendra-roy.jpg" alt="Birendra Kumar Roy" width={200} height={200} className="rounded-full object-cover aspect-square" />
+              </div>
+              <div className="md:col-span-2">
+                <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet the Founder</h2>
+                <p className="text-lg text-gray-700 mb-4">
+                  "Our main goal is to create a farming model where a family can live healthily and comfortably without artificial chemicals. Over time, we've built a processing center to prevent waste and generate more income, and now, a homestay to share our way of life with you."
+                </p>
+                <p className="font-semibold text-gray-800">— Birendra Kumar Roy</p>
+              </div>
+            </div>
           </section>
         </AnimateOnScroll>
-        
+
         {/* Values Section */}
         <AnimateOnScroll>
           <section className="mb-20">
@@ -158,13 +158,13 @@ export default function AboutPage() {
             <div className="text-center mb-12"><h2 className="text-3xl font-bold text-gray-900">Our Sustainable Practices</h2></div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {practices.map((practice) => (
-                  <div key={practice.title} className="flex items-start space-x-4">
-                      <div className="flex-shrink-0 bg-green-600 rounded-full w-16 h-16 flex items-center justify-center">{practice.icon}</div>
-                      <div>
-                          <h3 className="text-xl font-semibold mb-2">{practice.title}</h3>
-                          <p className="text-gray-600">{practice.description}</p>
-                      </div>
+                <div key={practice.title} className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 bg-green-600 rounded-full w-16 h-16 flex items-center justify-center">{practice.icon}</div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">{practice.title}</h3>
+                    <p className="text-gray-600">{practice.description}</p>
                   </div>
+                </div>
               ))}
             </div>
           </section>
@@ -186,7 +186,7 @@ export default function AboutPage() {
         <AnimateOnScroll>
           <section className="text-center bg-gray-100 rounded-lg p-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Experience Our Farm</h2>
-            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">We invite you to visit Sakriya Farm and experience sustainable agriculture firsthand. Become part of our mission to create a more sustainable future.</p>
+            <p className="text-gray-700 mb-6 max-w-2xl mx-auto">We invite you to visit Sakria Farm and experience sustainable agriculture firsthand. Become part of our mission to create a more sustainable future.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-green-600 hover:bg-green-700"><Link href="/contact">Plan Your Visit</Link></Button>
               <Button asChild size="lg" variant="outline" className="border-green-600 text-green-600 hover:bg-green-600 hover:text-white bg-transparent"><Link href="/products">Shop Our Products</Link></Button>

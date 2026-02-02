@@ -15,20 +15,19 @@ export default function AccommodationsPage() {
   const accommodations = [
     {
       id: 1,
-      name: "The Farmhouse Suite",
-      price: "₹2,500",
-      thumbnail: "/images/products/house2.jpg",
+      name: "Farm Stay Room 1",
+      price: "₹2,600",
+      thumbnail: "/images/stay/stay2.jpg",
       images: [
-        "/images/folder1/im10.jpg",
-        "/images/folder1/im10.jpg",
-        "/images/folder1/im10.jpg",
+        "/images/stay/stay1.jpg",
+        "/images/stay/stay2.jpg",
       ],
-      description: "Spacious suite in our historic farmhouse with panoramic valley views. Perfect for families looking for a blend of comfort and rustic charm.",
+      description: "Spacious suite in our farmhouse. Perfect for families looking for a blend of comfort and rustic charm.",
       capacity: "2-4 guests",
       bedrooms: 2,
       bathrooms: 1,
       amenities: ["Free WiFi", "AC", "Breakfast Included", "Farm Tour", "Kitchen Access"],
-      features: ["Valley Views", "Historic Building", "Private Entrance"],
+      features: ["Private Entrance"],
       rules: [
         { text: "No drinking.", icon: <Ban />, type: 'warning' },
         { text: "Smoking is allowed only in specified areas.", icon: <AlertTriangle />, type: 'warning' },
@@ -39,8 +38,8 @@ export default function AccommodationsPage() {
     },
     {
       id: 2,
-      name: "Cozy Stay",
-      price: "₹2,500",
+      name: "Farm Stay Room 2",
+      price: "₹2,600",
       thumbnail: "/images/products/homestay1.jpg",
       images: [
         "/images/products/homestay1.jpg",
@@ -63,8 +62,8 @@ export default function AccommodationsPage() {
     },
     {
       id: 3,
-      name: "The Garden Bungalow",
-      price: "₹2,500",
+      name: "Farm Stay Room 3",
+      price: "₹2,600",
       thumbnail: "/images/folder1/im1.jpeg",
       images: [
         "/images/folder1/im1.jpeg",

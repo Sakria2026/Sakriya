@@ -12,7 +12,7 @@ import AnimateOnScroll from "@/components/ui/AnimateOnScroll";
 export default function HomePage() {
   const [text] = useTypewriter({
     // --- BENGALI SPELLING CORRECTED HERE ---
-    words: ['SAKRIYA', 'সক্রিয়'],
+    words: ['SAKRIA', 'সক্রিয়'],
     loop: 1,
     typeSpeed: 120,
     deleteSpeed: 80,
@@ -55,7 +55,6 @@ export default function HomePage() {
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <h1 className="text-5xl md:text-6xl font-bold text-white tracking-wider h-24 md:h-28">
             <span>{text}</span>
-            <Cursor cursorStyle='_' />
           </h1>
           <p className="text-xl md:text-2xl mt-4 mb-8 text-white opacity-90">
             Stay with us, taste our organic produce, and discover sustainable farming practices
@@ -76,9 +75,9 @@ export default function HomePage() {
         <section className="py-16 px-4 max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Welcome to Sakriya Farm and HomeStay</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Welcome to Sakria Farm and HomeStay</h2>
               <p className="text-lg text-gray-700 mb-6">
-                Nestled in the heart of the countryside, Sakriya Farm and HomeStay has been practicing sustainable agriculture for over three generations. We offer authentic farm experiences where guests can participate in daily farm activities, learn about organic farming, and enjoy fresh, locally-grown produce.
+                Nestled in the heart of the countryside, Sakria Farm and HomeStay has been practicing sustainable agriculture for over three generations. We offer authentic farm experiences where guests can participate in daily farm activities, learn about organic farming, and enjoy fresh, locally-grown produce.
               </p>
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <div className="flex items-center space-x-2"><Leaf className="h-5 w-5 text-green-600" /> <span className="text-gray-700">100% Organic</span></div>
@@ -159,7 +158,7 @@ export default function HomePage() {
       <AnimateOnScroll>
         <section className="py-16 px-4 max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Moments from Sakriya</h2>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Moments from Sakria</h2>
           </div>
 
           {/* --- MODIFIED GRID --- */}
@@ -232,12 +231,12 @@ export default function HomePage() {
       <footer className="bg-gray-900 text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid md:grid-cols-4 gap-8">
-            <div><div className="flex items-center space-x-2 mb-4"><Leaf className="h-6 w-6 text-green-400" /><span className="text-lg font-bold">Sakriya Farm and HomeStay</span></div><p className="text-gray-400">Sustainable farming and authentic rural experiences since 1996.</p></div>
+            <div><div className="flex items-center space-x-2 mb-4"><Leaf className="h-6 w-6 text-green-400" /><span className="text-lg font-bold">Sakria Farm and HomeStay</span></div><p className="text-gray-400">Sustainable farming and authentic rural experiences since 1996.</p></div>
             <div><h3 className="font-semibold mb-4">Quick Links</h3><ul className="space-y-2 text-gray-400"><li><Link href="/products" className="hover:text-white">Products</Link></li><li><Link href="/accommodations" className="hover:text-white">Accommodations</Link></li><li><Link href="/about" className="hover:text-white">About Us</Link></li><li><Link href="/gallery" className="hover:text-white">Gallery</Link></li></ul></div>
-            <div><h3 className="font-semibold mb-4">Contact</h3><ul className="space-y-2 text-gray-400"><li>Vengadamangalam</li><li>Tamil Nadu, India</li><li>Phone: (555) 123-4567</li><li>Email: info@sakriyafarm.com</li></ul></div>
+            <div><h3 className="font-semibold mb-4">Contact</h3><ul className="space-y-2 text-gray-400"><li>Vengadamangalam</li><li>Tamil Nadu, India</li><li>Phone: (555) 123-4567</li><li>Email: info@sakriafarm.com</li></ul></div>
             <div><h3 className="font-semibold mb-4">Follow Us</h3><p className="text-gray-400 mb-4">Stay updated with our latest harvests and events</p><div className="flex space-x-4"><Button size="sm" variant="outline" className="border-gray-600 text-gray-400 hover:text-white bg-transparent">Facebook</Button><Button size="sm" variant="outline" className="border-gray-600 text-gray-400 hover:text-white bg-transparent">Instagram</Button></div></div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"><p>&copy; {new Date().getFullYear()} Sakriya Farm and HomeStay. All rights reserved.</p></div>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"><p>&copy; {new Date().getFullYear()} Sakria Farm and HomeStay. All rights reserved.</p></div>
         </div>
       </footer>
     </div>

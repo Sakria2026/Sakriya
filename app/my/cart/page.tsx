@@ -8,29 +8,23 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { useCart } from '@/contexts/CartContext';
-// import PaymentForm from '@/components/PaymentForm'; // <-- THIS IMPORT IS NOW REMOVED
 
 export default function CartPage() {
   const { cart, removeItem, updateQuantity, clearCartItems } = useCart();
-  
-  // const [showPayment, setShowPayment] = useState(false); // <-- REMOVED
-  // const [paymentStatus, setPaymentStatus] = useState<'pending' | 'success' | 'failed' | null>(null); // <-- REMOVED
-  // const [paymentData, setPaymentData] = useState<Record<string, unknown> | null>(null); // <-- REMOVED
-  // const [error, setError] = useState<string>(''); // <-- REMOVED
 
   const tax = cart.total * 0.18; // 18% GST
   const total = cart.total + tax;
 
-  // --- ALL PAYMENT HANDLER FUNCTIONS (handlePaymentSuccess, etc.) ARE REMOVED ---
-  // --- A NEW WHATSAPP CHECKOUT HANDLER IS ADDED ---
-
   const handleWhatsAppCheckout = () => {
-    // 1. SET YOUR WHATSAPP PHONE NUMBER
-    const YOUR_PHONE_NUMBER = "918144218850"; // <-- Change this if needed
+    // 1. GET YOUR WHATSAPP PHONE NUMBER
+    // Hardcoded to prevent env errors
+    const YOUR_PHONE_NUMBER = "917810864852";
+
+    // REMOVED CHECK FOR MISSING NUMBER
 
     // 2. Create the pre-filled message
     let message = "Hello, I'd like to place an order for the following items:\n\n";
-    
+
     cart.items.forEach(item => {
       message += `- ${item.name} (x${item.quantity}) - ₹${item.price * item.quantity}\n`;
     });
@@ -49,8 +43,11 @@ export default function CartPage() {
     // 5. Open the link in a new tab
     window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
 
-    // 6. Clear cart after sending to WhatsApp
-    clearCartItems();
+    // 6. --- THIS LINE IS REMOVED ---
+    // This fixes the empty message (race condition) problem.
+    // It's also better user experience, as the user might close
+    // the WhatsApp tab and want to return to their cart.
+    // clearCartItems();
   };
 
 
@@ -154,6 +151,9 @@ export default function CartPage() {
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
+          <div className="lg:col-span-3 bg-red-500 text-white p-4 text-center font-bold text-xl">
+            DEBUG MODE ACTIVE: IF YOU SEE THIS, UPDATE IS WORKING
+          </div>
           {/* Cart Items */}
           <div className="lg:col-span-2">
             <Card>
@@ -255,12 +255,10 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                {/* --- PAYMENT STATUS BLOCKS ARE REMOVED --- */}
-
                 {/* --- ACTION BUTTONS ARE UPDATED --- */}
                 <div className="space-y-2">
                   <Button
-                    onClick={handleWhatsAppCheckout} // <-- CHANGED
+                    onClick={handleWhatsAppCheckout} // <-- This will now work
                     className="w-full bg-green-600 hover:bg-green-700"
                   >
                     Checkout via WhatsApp
@@ -273,16 +271,10 @@ export default function CartPage() {
                     Clear Cart
                   </Button>
                 </div>
-
-                {/* --- PAYMENT STATUS/RESET BUTTONS ARE REMOVED --- */}
-
               </CardContent>
             </Card>
           </div>
         </div>
-
-        {/* --- PAYMENT FORM BLOCK IS REMOVED --- */}
-
       </div>
     </div>
   );
