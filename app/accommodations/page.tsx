@@ -16,7 +16,7 @@ export default function AccommodationsPage() {
     {
       id: 1,
       name: "Farm Stay Room 1",
-      price: "₹2,600",
+      price: "₹2,500",
       thumbnail: "/images/stay/stay2.jpg",
       images: [
         "/images/stay/stay1.jpg",
@@ -39,7 +39,7 @@ export default function AccommodationsPage() {
     {
       id: 2,
       name: "Farm Stay Room 2",
-      price: "₹2,600",
+      price: "₹2,500",
       thumbnail: "/images/products/homestay1.jpg",
       images: [
         "/images/products/homestay1.jpg",
@@ -63,7 +63,7 @@ export default function AccommodationsPage() {
     {
       id: 3,
       name: "Farm Stay Room 3",
-      price: "₹2,600",
+      price: "₹2,500",
       thumbnail: "/images/folder1/im1.jpeg",
       images: [
         "/images/folder1/im1.jpeg",
